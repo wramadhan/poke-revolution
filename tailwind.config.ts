@@ -13,6 +13,21 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      fontFamily: {
+        poppins: ['Poppins', 'sans'],
+        mochiypopone: ['Mochiy Pop One', 'sans'],
+      },
+    },
+    colors: {
+      primary: '#C04C4B',
+      secondary: '#F0DBA5',
+      tertiary: '#464646',
+      quaternary: '#E7E7E6',
+      quinary: '#6EA4BB',
+      white: '#FFFFFF',
+      black: '#000000',
+      transparent: 'transparent',
+      current: 'currentColor',
     },
   },
   plugins: [],
