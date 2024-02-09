@@ -1,12 +1,16 @@
 import { ReactNode, useState } from 'react'
 import { Icon } from '@iconify/react'
 import Link from 'next/link'
-import { AppContext, useApp } from '@/contexts/provider'
+import { Footer } from './footer'
+import { useLangStore } from '@/store/language'
+
 export const Navbar = ({ children }: { children: ReactNode }) => {
-  const [lang, setLang] = useState(false)
+  const { lang, toggle: changeLang } = useLangStore()
+  // const [lang, setLang] = useState(false)
   const [mode, setMode] = useState(false)
+
   return (
-    <div>
+    <>
       <header className='flex py-1.5 justify-between px-12 bg-quaternary text-primary'>
         <span className='flex'>
           <Icon
@@ -23,13 +27,14 @@ export const Navbar = ({ children }: { children: ReactNode }) => {
           <Link href='#'>Games</Link>
           <Link href='#'>Contact</Link>
           <span className='flex gap-3 mt-[-6px]'>
-            <ToglleButton check={lang} setCheck={setLang} lang={true} />
+            <ToglleButton check={lang} setCheck={changeLang} lang={true} />
             <ToglleButton check={mode} setCheck={setMode} lang={false} />
           </span>
         </nav>
       </header>
       <div>{children}</div>
-    </div>
+      <Footer />
+    </>
   )
 }
 
