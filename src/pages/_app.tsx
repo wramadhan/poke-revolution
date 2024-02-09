@@ -1,11 +1,14 @@
 import { Navbar } from '@/components/navbar'
-import '@/styles/globals.css'
+import { AppProvider } from '@/contexts/provider'
 import type { AppProps } from 'next/app'
+import '@/styles/globals.css'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <Navbar>
-      <Component {...pageProps} />
-    </Navbar>
+    <AppProvider>
+      <Navbar>
+        <Component {...pageProps} />
+      </Navbar>
+    </AppProvider>
   )
 }
