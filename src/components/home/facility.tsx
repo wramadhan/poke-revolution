@@ -1,4 +1,4 @@
-import { FacilityContent, FacilityTitle } from '@/services/content'
+import { FacilityContent, FacilityTitle } from '@/services/home/facilities'
 import { useLangStore } from '@/store/language'
 
 export const Facility = () => {

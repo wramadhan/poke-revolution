@@ -3,12 +3,11 @@ import { Icon } from '@iconify/react'
 import Link from 'next/link'
 import { Footer } from './footer'
 import { useLangStore } from '@/store/language'
+import { ListMenu } from '@/services/global/navbar'
 
 export const Navbar = ({ children }: { children: ReactNode }) => {
   const { lang, toggle: changeLang } = useLangStore()
-  // const [lang, setLang] = useState(false)
   const [mode, setMode] = useState(false)
-
   return (
     <>
       <header className='flex py-1.5 justify-between px-12 bg-quaternary text-primary'>
@@ -20,12 +19,11 @@ export const Navbar = ({ children }: { children: ReactNode }) => {
           <h1 className='font-mochiypopone pt-1.5'>Poke Revolution</h1>
         </span>
         <nav className='font-poppins flex gap-3 pt-1.5'>
-          <Link href='#' className='underline'>
-            Home
-          </Link>
-          <Link href='#'>Pokemon List</Link>
-          <Link href='#'>Games</Link>
-          <Link href='#'>Contact</Link>
+          {ListMenu[lang ? 'en' : 'id'].map((link, index) => (
+            <Link key={`${index + 1}${link.href}`} href={link.href}>
+              {link.label}
+            </Link>
+          ))}
           <span className='flex gap-3 mt-[-6px]'>
             <ToglleButton check={lang} setCheck={changeLang} lang={true} />
             <ToglleButton check={mode} setCheck={setMode} lang={false} />
@@ -100,24 +98,26 @@ const BurgerButton = () => {
   const toggleMenu = () => {
     setIsOpen(!isOpen)
   }
-  ;<button
-    className='flex flex-col justify-around w-10 h-10 bg-transparent border-none cursor-pointer p-0'
-    onClick={toggleMenu}
-  >
-    <div
-      className={`w-full h-1 bg-primary transition duration-300 transform ${
-        isOpen ? 'rotate-45  translate-y-2.5' : 'rotate-0'
-      }`}
-    ></div>
-    <div
-      className={`w-full h-1 bg-primary transition duration-300 transform ${
-        isOpen ? 'opacity-0 ' : 'opacity-100'
-      }`}
-    ></div>
-    <div
-      className={`w-full h-1 bg-primary transition duration-300 transform ${
-        isOpen ? '-rotate-45 -translate-y-4' : 'rotate-0'
-      }`}
-    ></div>
-  </button>
+  return (
+    <button
+      className='flex flex-col justify-around w-10 h-10 bg-transparent border-none cursor-pointer p-0'
+      onClick={toggleMenu}
+    >
+      <div
+        className={`w-full h-1 bg-primary transition duration-300 transform ${
+          isOpen ? 'rotate-45  translate-y-2.5' : 'rotate-0'
+        }`}
+      ></div>
+      <div
+        className={`w-full h-1 bg-primary transition duration-300 transform ${
+          isOpen ? 'opacity-0 ' : 'opacity-100'
+        }`}
+      ></div>
+      <div
+        className={`w-full h-1 bg-primary transition duration-300 transform ${
+          isOpen ? '-rotate-45 -translate-y-4' : 'rotate-0'
+        }`}
+      ></div>
+    </button>
+  )
 }

@@ -1,7 +1,10 @@
 import Marquee from 'react-fast-marquee'
 import { Icon } from '@iconify/react'
+import { ButtonLabel, HeroSubTitle } from '@/services/home/hero'
+import { useLangStore } from '@/store/language'
 
-export const MainHome = () => {
+export const Hero = () => {
+  const { lang } = useLangStore()
   return (
     <main className='font-medium py-16 text-quaternary bg-primary h-[calc(100vh-48px)]'>
       <Marquee speed={30}>
@@ -20,11 +23,11 @@ export const MainHome = () => {
         ke Revolution
       </p>
       <p className='w-full flex text-sm justify-center'>
-        Everything will evolve in time
+        {HeroSubTitle[lang ? 'en' : 'id']}
       </p>
       <div className='flex justify-center py-16'>
         <button className='hover:shadow-inner  bg-secondary text-primary font-semibold py-4 px-8 rounded-xl'>
-          Get Started
+          {ButtonLabel[lang ? 'en' : 'id']}
         </button>
       </div>
       <div className='flex justify-center animate-bounce h-12'>
