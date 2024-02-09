@@ -1,7 +1,7 @@
 import { ReactNode, useState } from 'react'
 import { Icon } from '@iconify/react'
 import Link from 'next/link'
-
+import { AppContext, useApp } from '@/contexts/provider'
 export const Navbar = ({ children }: { children: ReactNode }) => {
   const [lang, setLang] = useState(false)
   const [mode, setMode] = useState(false)
@@ -49,30 +49,28 @@ const ToglleButton = ({
     setCheck(!isChecked)
   }
   return (
-    <>
-      <label className='flex cursor-pointer select-none items-center'>
-        <div className='relative'>
-          <input
-            type='checkbox'
-            checked={isChecked}
-            onChange={handleCheckboxChange}
-            className='sr-only'
-          />
-          <div
-            className={`box block h-6 w-10 rounded-full ${
-              isChecked ? 'bg-primary' : 'bg-tertiary'
-            }`}
-          ></div>
-          <div
-            className={`absolute left-1 top-1 flex h-4 w-4 items-center justify-center rounded-full bg-white transition ${
-              isChecked ? 'translate-x-full' : ''
-            } font-semibold`}
-          >
-            <Values lang={lang} isChecked={isChecked} />
-          </div>
+    <label className='flex cursor-pointer select-none items-center'>
+      <div className='relative'>
+        <input
+          type='checkbox'
+          checked={isChecked}
+          onChange={handleCheckboxChange}
+          className='sr-only'
+        />
+        <div
+          className={`box block h-6 w-10 rounded-full ${
+            isChecked ? 'bg-primary' : 'bg-tertiary'
+          }`}
+        ></div>
+        <div
+          className={`absolute left-1 top-1 flex h-4 w-4 items-center justify-center rounded-full bg-white transition ${
+            isChecked ? 'translate-x-full' : ''
+          } font-semibold`}
+        >
+          <Values lang={lang} isChecked={isChecked} />
         </div>
-      </label>
-    </>
+      </div>
+    </label>
   )
 }
 const Values = ({ lang, isChecked }: { lang: boolean; isChecked: boolean }) => {
@@ -89,4 +87,32 @@ const Values = ({ lang, isChecked }: { lang: boolean; isChecked: boolean }) => {
       <Icon icon='ph:moon-fill' />
     )
   }
+}
+
+const BurgerButton = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen)
+  }
+  ;<button
+    className='flex flex-col justify-around w-10 h-10 bg-transparent border-none cursor-pointer p-0'
+    onClick={toggleMenu}
+  >
+    <div
+      className={`w-full h-1 bg-primary transition duration-300 transform ${
+        isOpen ? 'rotate-45  translate-y-2.5' : 'rotate-0'
+      }`}
+    ></div>
+    <div
+      className={`w-full h-1 bg-primary transition duration-300 transform ${
+        isOpen ? 'opacity-0 ' : 'opacity-100'
+      }`}
+    ></div>
+    <div
+      className={`w-full h-1 bg-primary transition duration-300 transform ${
+        isOpen ? '-rotate-45 -translate-y-4' : 'rotate-0'
+      }`}
+    ></div>
+  </button>
 }
