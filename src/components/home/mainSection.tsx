@@ -5,13 +5,13 @@ export const MainHome = () => {
   return (
     <main className='font-medium py-16 text-quaternary bg-primary h-[calc(100vh-48px)]'>
       <Marquee speed={30}>
-        <p>{'Poke Revolution - '.repeat(10)}&nbsp;</p>
+        <p>{'Poke Revolution - '.repeat(100)}&nbsp;</p>
       </Marquee>
       <Marquee speed={30} direction='right'>
-        <p>{'Poke Revolution - '.repeat(10)}&nbsp;</p>
+        <p>{'Poke Revolution - '.repeat(100)}&nbsp;</p>
       </Marquee>
       <Marquee speed={30}>
-        <p>{'Poke Revolution - '.repeat(10)}&nbsp;</p>
+        <p>{'Poke Revolution - '.repeat(100)}&nbsp;</p>
       </Marquee>
 
       <p className='w-full flex text-5xl justify-center font-mochiypopone pt-16 '>
