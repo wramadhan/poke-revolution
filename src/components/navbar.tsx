@@ -27,7 +27,7 @@ export const Navbar = ({ children }: { children: ReactNode }) => {
         <span className='flex'>
           <Icon
             icon='ic:twotone-catching-pokemon'
-            className='text-primary text-4xl'
+            className='text-primary text-4xl rotate-12'
           />
           <h1 className='font-mochiypopone pt-1.5'>Poke Revolution</h1>
         </span>

@@ -19,7 +19,7 @@ export const Hero = () => {
 
       <p className='w-full flex text-5xl justify-center font-mochiypopone pt-16 '>
         P
-        <Icon className='mt-1.5' icon='ic:twotone-catching-pokemon' />
+        <Icon className='mt-1.5 rotate-12' icon='ic:twotone-catching-pokemon' />
         ke Revolution
       </p>
       <p className='w-full flex text-sm justify-center'>
