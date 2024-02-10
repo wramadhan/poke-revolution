@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react'
+import { ReactNode, useEffect, useState } from 'react'
 import { Icon } from '@iconify/react'
 import Link from 'next/link'
 import { Footer } from './footer'
@@ -6,8 +6,21 @@ import { useLangStore } from '@/store/language'
 import { ListMenu } from '@/services/global/navbar'
 
 export const Navbar = ({ children }: { children: ReactNode }) => {
-  const { lang, toggle: changeLang } = useLangStore()
+  const { lang, toggle: changeLang, setDefault: setDefault } = useLangStore()
   const [mode, setMode] = useState(false)
+  const setLanguage = () => {
+    localStorage.setItem('lang', JSON.stringify(lang ? false : true))
+    setDefault(lang ? false : true)
+  }
+
+  useEffect(() => {
+    const localLang = localStorage.getItem('lang')
+    if (localLang != undefined || localLang != null) {
+      if (JSON.parse(localLang) != lang) {
+        setDefault(JSON.parse(localLang))
+      }
+    }
+  }, [])
   return (
     <>
       <header className='flex py-1.5 justify-between px-12 bg-quaternary text-primary'>
@@ -25,7 +38,7 @@ export const Navbar = ({ children }: { children: ReactNode }) => {
             </Link>
           ))}
           <span className='flex gap-3 mt-[-6px]'>
-            <ToglleButton check={lang} setCheck={changeLang} lang={true} />
+            <ToglleButton check={lang} setCheck={setLanguage} lang={true} />
             <ToglleButton check={mode} setCheck={setMode} lang={false} />
           </span>
         </nav>
@@ -45,32 +58,26 @@ const ToglleButton = ({
   check: boolean
   setCheck: (isChecked: boolean) => void
 }) => {
-  const [isChecked, setIsChecked] = useState(check)
-
-  const handleCheckboxChange = () => {
-    setIsChecked(!isChecked)
-    setCheck(!isChecked)
-  }
   return (
     <label className='flex cursor-pointer select-none items-center'>
       <div className='relative'>
         <input
           type='checkbox'
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          checked={check}
+          onChange={() => setCheck(!check)}
           className='sr-only'
         />
         <div
           className={`box block h-6 w-10 rounded-full ${
-            isChecked ? 'bg-primary' : 'bg-tertiary'
+            check ? 'bg-primary' : 'bg-tertiary'
           }`}
         ></div>
         <div
           className={`absolute left-1 top-1 flex h-4 w-4 items-center justify-center rounded-full bg-white transition ${
-            isChecked ? 'translate-x-full' : ''
+            check ? 'translate-x-full' : ''
           } font-semibold`}
         >
-          <Values lang={lang} isChecked={isChecked} />
+          <Values lang={lang} isChecked={check} />
         </div>
       </div>
     </label>
