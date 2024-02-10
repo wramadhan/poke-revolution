@@ -10,6 +10,6 @@ Thank You
 
 ## Tech Stack
 
-**Client:** Nextjs, Google Analytics, TailwindCSS, Material UI
+**Client:** Nextjs, Google Analytics, TailwindCSS, Zustand
 
 **Server:** Node, Express
