@@ -20,8 +20,6 @@ export const Footer = () => {
         </span>
         <button>{ContactUs[lang ? 'en' : 'id']}</button>
       </div>
-      {/* <footer>&copy; Copyright 2024 HTML.am</footer> */}
-
       <p className='text-white text-center'>
         &copy; Copyright 2024 Wahyu Ramadhan
       </p>
