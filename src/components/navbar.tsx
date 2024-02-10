@@ -23,7 +23,7 @@ export const Navbar = ({ children }: { children: ReactNode }) => {
   }, [])
   return (
     <>
-      <header className='flex py-1.5 justify-between px-12 bg-quaternary text-primary'>
+      <header className='fixed z-50 w-full shadow-black drop-shadow-2xl flex py-1.5 justify-between px-12 bg-quaternary text-primary'>
         <span className='flex'>
           <Icon
             icon='ic:twotone-catching-pokemon'

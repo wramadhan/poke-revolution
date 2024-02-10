@@ -6,7 +6,7 @@ import { useLangStore } from '@/store/language'
 export const Hero = () => {
   const { lang } = useLangStore()
   return (
-    <main className='font-medium py-16 text-quaternary bg-primary h-[calc(100vh-48px)]'>
+    <main className='font-medium py-16 text-quaternary bg-primary h-[calc(100vh+48px)]'>
       <Marquee speed={30}>
         <p>{'Poke Revolution - '.repeat(100)}&nbsp;</p>
       </Marquee>
