@@ -15,7 +15,7 @@ export const Card = ({ imageSrc, altText, desc }: CardProps) => {
       className={`bg-primary rounded-3xl p-2 shadow-2xl shadow-tertiary cursor-pointer`}
     >
       <div
-        className='w-[250px] h-[360px] bg-primary rounded-3xl overflow-hidden group'
+        className='w-[130px] h-[220px] sm:w-[250px] sm:h-[360px] bg-primary rounded-3xl overflow-hidden group'
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -31,8 +31,8 @@ export const Card = ({ imageSrc, altText, desc }: CardProps) => {
             title={altText}
           />
           <div
-            className={`absolute bottom-0 px-2 py-3 bg-black bg-opacity-50 rounded-b-3xl w-full transition-transform duration-300 ${
-              isHovered ? 'translate-y-0' : 'translate-y-12'
+            className={`absolute bottom-0 px-2 py-3 bg-black smMax:h-full bg-opacity-50 rounded-b-3xl w-full transition-transform duration-300 smMax:flex smMax:flex-col smMax:justify-center ${
+              isHovered ? 'sm:translate-y-0' : 'sm:translate-y-12'
             }`}
           >
             <p

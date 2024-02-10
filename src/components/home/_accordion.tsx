@@ -23,7 +23,12 @@ export const Accordion: React.FC = () => {
             className='flex rounded justify-between items-center p-4 cursor-pointer transition duration-500 ease-in-out bg-gray-100 bg-tertiary hover:bg-quinary text-quaternary'
             onClick={() => toggleItem(index)}
           >
-            <div className='font-semibold'>{item.q}</div>
+            <div
+              className='font-semibold smMax:text-xs'
+              onClick={() => toggleItem(index)}
+            >
+              {item.q}
+            </div>
             <div>
               <svg
                 className={`${
@@ -45,7 +50,7 @@ export const Accordion: React.FC = () => {
           <div
             className={`duration-200 ${
               openIndex === index ? '' : 'opacity-0 h-0 translate-x-10'
-            } p-4 bg-quinary rounded text-white`}
+            } smMax:text-xs p-4 bg-quinary rounded text-white`}
           >
             {item.a}
           </div>

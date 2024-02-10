@@ -37,7 +37,7 @@ export const Navbar = ({ children }: { children: ReactNode }) => {
           />
           <h1 className='font-mochiypopone pt-1.5'>Poke Revolution</h1>
         </span>
-        <nav className='font-poppins flex gap-3 pt-1.5'>
+        <nav className='mdMax:hidden font-poppins flex gap-3 pt-1.5'>
           {ListMenu[lang ? 'en' : 'id'].map((link, index) => (
             <Link key={`${index + 1}${link.href}`} href={link.href}>
               {link.label}
@@ -48,6 +48,9 @@ export const Navbar = ({ children }: { children: ReactNode }) => {
             {/* <ToglleButton check={theme} setCheck={setTheme} lang={false} /> */}
           </span>
         </nav>
+        <span className='md:hidden'>
+          <BurgerButton />
+        </span>
       </header>
       <div>{children}</div>
       <button

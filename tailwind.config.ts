@@ -29,6 +29,16 @@ const config: Config = {
       transparent: 'transparent',
       current: 'currentColor',
     },
+    screens: {
+      sm: '640px',
+      md: '820px',
+      lg: '1024px',
+      xl: '1280px',
+      smMax: { max: '639px' },
+      mdMax: { max: '820px' },
+      lgMax: { max: '1023px' },
+      xlMax: { max: '1279px' },
+    },
   },
   plugins: [],
 }
