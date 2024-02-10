@@ -1,5 +1,7 @@
 import { FacilityContent, FacilityTitle } from '@/services/home/facilities'
 import { useLangStore } from '@/store/language'
+import { Card } from './_card'
+import { CardFacilities } from '@/services/home/_cardFacilities'
 
 export const Facility = () => {
   const { lang } = useLangStore()
@@ -12,6 +14,16 @@ export const Facility = () => {
       <p className='text-primary text-center text-2xl py-12 px-20'>
         {FacilityContent[lang ? 'en' : 'id']}
       </p>
+      <div className='flex justify-center gap-10'>
+        {CardFacilities[lang ? 'en' : 'id'].map((card, index) => (
+          <Card
+            key={index}
+            imageSrc={card.img}
+            altText={card.title}
+            desc={card.content}
+          />
+        ))}
+      </div>
     </div>
   )
 }

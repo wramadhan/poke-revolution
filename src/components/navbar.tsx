@@ -7,7 +7,7 @@ import { ListMenu } from '@/services/global/navbar'
 
 export const Navbar = ({ children }: { children: ReactNode }) => {
   const { lang, toggle: changeLang, setDefault: setDefault } = useLangStore()
-  const [mode, setMode] = useState(false)
+  // const [theme, setTheme] = useState(false)
   const setLanguage = () => {
     localStorage.setItem('lang', JSON.stringify(lang ? false : true))
     setDefault(lang ? false : true)
@@ -39,7 +39,7 @@ export const Navbar = ({ children }: { children: ReactNode }) => {
           ))}
           <span className='flex gap-3 mt-[-6px]'>
             <ToglleButton check={lang} setCheck={setLanguage} lang={true} />
-            <ToglleButton check={mode} setCheck={setMode} lang={false} />
+            {/* <ToglleButton check={theme} setCheck={setTheme} lang={false} /> */}
           </span>
         </nav>
       </header>

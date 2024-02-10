@@ -9,14 +9,22 @@ export const Footer = () => {
     <footer className='px-12 py-2 bg-tertiary'>
       <div className='flex justify-between text-quaternary'>
         <span className='flex'>
-          <Icon icon='ic:twotone-catching-pokemon' className='text-4xl' />
+          <Icon
+            icon='ic:twotone-catching-pokemon'
+            className='text-4xl rotate-12 mt-2'
+          />
           <h1 className='font-mochiypopone pt-1.5'>
             <div>Poke Revolution</div>
-            <div>{HeroSubTitle[lang ? 'en' : 'id']}</div>
+            <div className='text-xs'>{HeroSubTitle[lang ? 'en' : 'id']}</div>
           </h1>
         </span>
         <button>{ContactUs[lang ? 'en' : 'id']}</button>
       </div>
+      {/* <footer>&copy; Copyright 2024 HTML.am</footer> */}
+
+      <p className='text-white text-center'>
+        &copy; Copyright 2024 Wahyu Ramadhan
+      </p>
     </footer>
   )
 }
