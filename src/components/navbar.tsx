@@ -21,6 +21,12 @@ export const Navbar = ({ children }: { children: ReactNode }) => {
       }
     }
   }, [])
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    })
+  }
   return (
     <>
       <header className='fixed z-50 w-full shadow-black drop-shadow-2xl flex py-1.5 justify-between px-12 bg-quaternary text-primary'>
@@ -44,6 +50,27 @@ export const Navbar = ({ children }: { children: ReactNode }) => {
         </nav>
       </header>
       <div>{children}</div>
+      <button
+        onClick={scrollToTop}
+        id='btn-back-to-top'
+        title={lang ? 'Back to Top' : 'Kembali ke atas'}
+        className={`fixed bottom-8 right-8 bg-secondary text-primary border-tertiary bg-gray-700 hover:bg-gray-800 p-2 rounded-full drop-shadow-md shadow-tertiary`}
+      >
+        <svg
+          className='w-6 h-6'
+          fill='none'
+          stroke='currentColor'
+          viewBox='0 0 24 24'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <path
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            strokeWidth='2'
+            d='M5 10l7-7m0 0l7 7m-7-7v18'
+          ></path>
+        </svg>
+      </button>
       <Footer />
     </>
   )
