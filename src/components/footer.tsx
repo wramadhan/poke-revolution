@@ -6,7 +6,7 @@ import { ContactUs } from '@/services/global/footer'
 export const Footer = () => {
   const { lang } = useLangStore()
   return (
-    <footer className='px-12 py-2 bg-tertiary'>
+    <footer className='smMax:px-2 px-12 py-2 bg-tertiary'>
       <div className='flex justify-between text-quaternary'>
         <span className='flex'>
           <Icon

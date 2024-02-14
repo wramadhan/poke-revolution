@@ -36,14 +36,16 @@ export const Navbar = ({ children }: { children: ReactNode }) => {
 
   return (
     <>
-      <header className='fixed z-50 w-full shadow-black drop-shadow-2xl flex py-1.5 justify-between px-12 bg-quaternary text-primary'>
-        <span className='flex'>
-          <Icon
-            icon='ic:twotone-catching-pokemon'
-            className='text-primary text-4xl rotate-12'
-          />
-          <h1 className='font-mochiypopone pt-1.5'>Poke Revolution</h1>
-        </span>
+      <header className='fixed z-50 w-full shadow-black drop-shadow-2xl flex py-1.5 justify-between smMax:px-2 px-12 bg-quaternary text-primary'>
+        <Link href={'/'}>
+          <span className='flex'>
+            <Icon
+              icon='ic:twotone-catching-pokemon'
+              className='text-primary text-4xl rotate-12'
+            />
+            <h1 className='font-mochiypopone pt-1.5'>Poke Revolution</h1>
+          </span>
+        </Link>
         <nav className='mdMax:hidden font-poppins flex gap-3 pt-1.5'>
           {ListMenu[lang ? 'en' : 'id'].map((link, index) => (
             <Link key={`${index + 1}${link.href}`} href={link.href}>
