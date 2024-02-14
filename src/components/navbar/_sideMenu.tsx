@@ -20,9 +20,12 @@ export const SideMenu = () => {
           openBurger ? 'w-3/4' : 'w-0 translate-x-full opacity-0'
         } bg-tertiary border-tertiary px-4 py-8 flex flex-col z-10 bg-gray-700 hover:bg-gray-800 h-[calc(100%-48px)] drop-shadow-md shadow-tertiary`}
       >
-        {ListMenu[lang ? 'en' : 'id'].map((e) => (
-          <Link href={e.href} onClick={toggleBurger}>
-            <p className='text-white text-start hover:underline focus:underline font-semibold'>
+        {ListMenu[lang ? 'en' : 'id'].map((e, i) => (
+          <Link href={e.href} key={`${i + 1}`} onClick={toggleBurger}>
+            <p
+              key={`${i + 1}`}
+              className='text-white text-start hover:underline focus:underline font-semibold'
+            >
               {e.label}
             </p>
           </Link>

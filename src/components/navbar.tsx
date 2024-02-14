@@ -24,6 +24,7 @@ export const Navbar = ({ children }: { children: ReactNode }) => {
         setDefault(JSON.parse(localLang))
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const scrollToTop = () => {
     setOpen(!open)
