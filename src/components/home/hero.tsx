@@ -16,7 +16,6 @@ export const Hero = () => {
       <Marquee speed={30}>
         <p>{'Poke Revolution - '.repeat(100)}&nbsp;</p>
       </Marquee>
-
       <p className='w-full flex text-2xl sm:text-5xl justify-center font-mochiypopone pt-16 '>
         P
         <Icon className='mt-1.5 rotate-12' icon='ic:twotone-catching-pokemon' />
