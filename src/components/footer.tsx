@@ -20,7 +20,7 @@ export const Footer = () => {
         </span>
         <button>{ContactUs[lang ? 'en' : 'id']}</button>
       </div>
-      <p className='text-white text-center'>
+      <p className='text-white sm:text-center pt-2'>
         &copy; Copyright 2024 Wahyu Ramadhan
       </p>
     </footer>
