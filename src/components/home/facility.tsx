@@ -17,7 +17,8 @@ export const Facility = () => {
       <div className='flex justify-center gap-10'>
         {CardFacilities[lang ? 'en' : 'id'].map((card, index) => (
           <Card
-            key={index}
+            route={card.route}
+            key={`${index + 1}`}
             imageSrc={card.img}
             altText={card.title}
             desc={card.content}
