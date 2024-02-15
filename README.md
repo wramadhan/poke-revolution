@@ -10,7 +10,7 @@ Thank You
 
 ## Tech Stack
 
-**Client:** Nextjs, Google Analytics, TailwindCSS, Zustand
+**Client:** Nextjs, Google Analytics, TailwindCSS, Zustand, Material UI, GSAP, Vercel Analytics, Vercel Speed Insights
 
 **Server:** Node, Express
 
