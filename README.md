@@ -13,3 +13,26 @@ Thank You
 **Client:** Nextjs, Google Analytics, TailwindCSS, Zustand
 
 **Server:** Node, Express
+
+## Installation Method
+
+Make sure you have Node.js and npm installed on your system before starting.
+
+1. **Clone Repository**
+
+   ```bash
+   git clone https://github.com/wramadhan/poke-revolution.git
+   ```
+
+2. **Move to The Project Directory**
+   ```bash
+   cd poke-revolution
+   ```
+3. **Install Dependencies**
+   ```bash
+   npm install
+   ```
+4. **Running Applications**
+   ```bash
+   npm run dev
+   ```
