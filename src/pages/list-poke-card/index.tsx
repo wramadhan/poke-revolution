@@ -31,7 +31,7 @@ const ListPoke = () => {
   //   console.log('ini jumlah', Math.ceil(dataPokemon['count'] / 10))
   // }
   return (
-    <div className='min-h-screen pt-20 bg-primary'>
+    <div className='min-h-[calc(100vh-92px)] pt-20 bg-primary'>
       <p className='text-center text-white font-mochiypopone'>List Nama Poke</p>
       <input
         placeholder='Cari nama pokemon'
