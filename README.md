@@ -10,7 +10,7 @@ Thank You
 
 ## Tech Stack
 
-**Client:** Nextjs, Google Analytics, TailwindCSS, Zustand, Material UI, GSAP, Vercel Analytics, Vercel Speed Insights
+**Client:** Nextjs, TailwindCSS, Zustand, Material UI, Vercel Analytics, Vercel Speed Insights
 
 **Server:** Node, Express
 
@@ -36,7 +36,7 @@ Make sure you have Node.js 18.18 and npm installed on your system before startin
    ```bash
    npm run dev
    ```
-   The application will run in development mode and can be accessed at http://localhost:3000.The application will run in development mode and can be accessed at http://localhost:3000
+   The application will run in development mode and can be accessed at http://localhost:3000. The application will run in development mode and can be accessed at http://localhost:3000
 
 ## Contribution
 
