@@ -15,12 +15,10 @@ export const Accordion: React.FC = () => {
       {QnAText[lang ? 'en' : 'id']['chat'].map((item, index) => (
         <div
           key={index}
-          className={`duration-100 ${
-            openIndex === index ? '' : ''
-          } rounded mb-2`}
+          className={`duration-300 ${openIndex === index ? '' : ''} rounded `}
         >
           <div
-            className='flex rounded justify-between items-center p-4 cursor-pointer transition duration-500 ease-in-out bg-gray-100 bg-tertiary hover:bg-quinary text-quaternary'
+            className='flex rounded justify-between items-center  sm:p-4 p-3 cursor-pointer transition duration-500 ease-in-out bg-gray-100 bg-tertiary hover:bg-quinary text-quaternary'
             onClick={() => toggleItem(index)}
           >
             <div
@@ -50,7 +48,7 @@ export const Accordion: React.FC = () => {
           <div
             className={`duration-200 ${
               openIndex === index ? '' : 'opacity-0 h-0 translate-x-10'
-            } smMax:text-xs p-4 bg-quinary rounded text-white`}
+            } smMax:text-xs sm:p-4 p-3 bg-quinary rounded text-white`}
           >
             {item.a}
           </div>
