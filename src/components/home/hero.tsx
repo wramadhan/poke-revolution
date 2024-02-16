@@ -25,13 +25,29 @@ export const Hero = () => {
         {HeroSubTitle[lang ? 'en' : 'id']}
       </p>
       <div className='flex justify-center py-16'>
-        <button className='hover:shadow-inner smMax:text-xs bg-secondary text-primary font-semibold py-4 px-8 rounded-xl'>
-          {ButtonLabel[lang ? 'en' : 'id']}
-        </button>
+        <ScrollDownButton label={ButtonLabel[lang ? 'en' : 'id']} />
       </div>
       <div className='flex justify-center animate-bounce h-12'>
         <Icon icon='ic:sharp-swipe-up' className='text-3xl' />
       </div>
     </main>
+  )
+}
+const ScrollDownButton = ({ label }: { label: string }) => {
+  const scrollDown = () => {
+    const windowHeight = window.innerHeight
+    window.scrollTo({
+      top: windowHeight,
+      behavior: 'smooth',
+    })
+  }
+
+  return (
+    <button
+      onClick={scrollDown}
+      className='hover:shadow-inner smMax:text-xs bg-secondary text-primary font-semibold py-4 px-8 rounded-xl'
+    >
+      {label}
+    </button>
   )
 }
