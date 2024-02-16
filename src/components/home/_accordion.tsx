@@ -48,7 +48,7 @@ export const Accordion: React.FC = () => {
           <div
             className={`duration-200 ${
               openIndex === index ? '' : 'opacity-0 h-0 translate-x-10'
-            } smMax:text-xs sm:p-4 p-3 bg-quinary rounded text-white`}
+            } smMax:text-xs sm:p-4 p-3 bg-quinary mb-4 rounded text-white`}
           >
             {item.a}
           </div>
