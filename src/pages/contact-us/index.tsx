@@ -7,15 +7,17 @@ import { useLangStore } from '@/store/language'
 const Contact = () => {
   const { lang } = useLangStore()
   return (
-    <div className='py-16 bg-primary mdMax:px-9 px-14'>
+    <div className='py-16 bg-primary mdMax:px-9 px-14 md:h-[calc(100vh-66px)]'>
       <div className='md:flex gap-4 justify-between'>
-        <div className='md:w-1/2'>
-          <div className='text-quaternary text-center font-poppins font-bold text-2xl'>
-            {lang ? 'Contact' : 'Kontak'}
-          </div>
-          <p className='text-quaternary pt-4'>
-            {DescContact[lang ? 'en' : 'id']}
-          </p>
+        <div className='md:w-1/2 md:flex flex-col justify-evenly'>
+          <span>
+            <div className='text-quaternary text-center font-poppins font-bold md:mt-7 text-2xl'>
+              {lang ? 'Contact' : 'Kontak'}
+            </div>
+            <p className='text-quaternary pt-4'>
+              {DescContact[lang ? 'en' : 'id']}
+            </p>
+          </span>
           <div className='mdMax:hidden'>
             <Social />
           </div>
