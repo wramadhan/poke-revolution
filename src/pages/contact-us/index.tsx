@@ -9,7 +9,7 @@ const Contact = () => {
   return (
     <div className='py-16 bg-primary mdMax:px-9 px-14'>
       <div className='md:flex gap-4 justify-between'>
-        <div className='w-1/2'>
+        <div className='md:w-1/2'>
           <div className='text-quaternary text-center font-poppins font-bold text-2xl'>
             {lang ? 'Contact' : 'Kontak'}
           </div>

@@ -14,7 +14,7 @@ export const FormContact: React.FC = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className='mdMax:mx-auto my-9 w-1/2'>
+    <form onSubmit={handleSubmit} className='mdMax:mx-auto my-9 md:w-1/2'>
       <div className='mt-7'>
         <label className={styling.label} htmlFor='name'>
           {lang ? 'Name' : 'Nama'}
