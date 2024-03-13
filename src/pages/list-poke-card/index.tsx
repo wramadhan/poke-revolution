@@ -1,16 +1,20 @@
 import { useEffect, useState } from 'react'
 import Pagination from '@mui/material/Pagination'
+import { GetServerSideProps } from 'next'
 import Stack from '@mui/material/Stack'
-const ListPoke = () => {
+interface HomeProps {
+  dataPokemons: any // Sesuaikan dengan tipe data yang diharapkan
+}
+
+const ListPoke: React.FC<HomeProps> = ({ dataPokemons }) => {
   const [dataPokemon, setDataPokemon] = useState()
   const [error, setError] = useState<string | null>(null)
   const [page, setPage] = useState(1)
-
+  console.log('ini data pokemon masuk : ', dataPokemons)
   useEffect(() => {
     const fetchData = async () => {
       try {
         const offset = 0
-        const limit = 20
 
         const url = `/api/list-all-card?offset=${offset}&limit=2000`
 
@@ -24,8 +28,8 @@ const ListPoke = () => {
         setError('Failed to fetch data')
       }
     }
-
     fetchData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   // if (dataPokemon) {
   //   console.log('ini jumlah', Math.ceil(dataPokemon['count'] / 10))
@@ -54,6 +58,28 @@ const ListPoke = () => {
       ) : null}
     </div>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  try {
+    const offset = 0
+    const limit = 2000
+    const url = `/api/list-all-card?offset=${offset}&limit=${limit}`
+
+    const response = await fetch(url)
+    if (!response.ok) {
+      throw new Error('Failed to fetch data')
+    }
+    const dataPokemons = await response.json()
+
+    return {
+      props: { dataPokemons },
+    }
+  } catch (error) {
+    return {
+      props: { error: 'Failed to fetch data' },
+    }
+  }
 }
 
 export default ListPoke

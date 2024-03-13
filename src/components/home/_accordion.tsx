@@ -11,7 +11,7 @@ export const Accordion: React.FC = () => {
   }
 
   return (
-    <div className='w-full my-8 mx-auto duration-500'>
+    <div className='w-full my-8 mx-auto select-none duration-500'>
       {QnAText[lang ? 'en' : 'id']['chat'].map((item, index) => (
         <div
           key={index}

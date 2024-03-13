@@ -8,13 +8,13 @@ export const Hero = () => {
   return (
     <main className='flex flex-col justify-center font-medium py-16 text-quaternary bg-primary h-[calc(100vh+48px)]'>
       <Marquee speed={30}>
-        <p>{'Poke Revolution - '.repeat(100)}&nbsp;</p>
+        <p>{'=-'.repeat(200)}&nbsp;</p>
       </Marquee>
       <Marquee speed={30} direction='right'>
-        <p>{'Poke Revolution - '.repeat(100)}&nbsp;</p>
+        <p>{'Poke Revolution - '.repeat(200)}&nbsp;</p>
       </Marquee>
       <Marquee speed={30}>
-        <p>{'Poke Revolution - '.repeat(100)}&nbsp;</p>
+        <p>{'=-'.repeat(200)}&nbsp;</p>
       </Marquee>
       <p className='w-full flex text-2xl sm:text-5xl justify-center font-mochiypopone pt-16 '>
         P

@@ -6,3 +6,23 @@
   padding: 0px;
   margin: 0px;
 }
+/* Membuat scrollbar tipis */
+::-webkit-scrollbar {
+  width: 5px; /* lebar scrollbar */
+}
+
+/* Warna latar belakang scrollbar */
+::-webkit-scrollbar-track {
+  background: #c04c4b;
+}
+
+/* Warna scroll handle atau thumb */
+::-webkit-scrollbar-thumb {
+  background: #f0dba5;
+  border-radius: 5px;
+}
+
+/* Hover state pada scroll handle */
+::-webkit-scrollbar-thumb:hover {
+  background: #464646;
+}

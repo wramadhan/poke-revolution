@@ -13,12 +13,12 @@ export const SideMenu = () => {
         onClick={toggleBurger}
         className={`fixed bottom-0 ease-in-out duration-300 left-0 ${
           openBurger ? 'w-1/4' : 'w-0'
-        } bg-tertiary opacity-50 text-primary border-tertiary z-10 bg-gray-700 hover:bg-gray-800 h-[calc(100%-48px)] drop-shadow-md shadow-tertiary`}
+        } bg-tertiary opacity-50 text-primary border-tertiary z-10 bg-gray-700 hover:bg-gray-800 h-[calc(100%-40px)] drop-shadow-md shadow-tertiary`}
       ></div>
       <div
         className={`fixed bottom-0 ease-in-out duration-300 right-0 ${
           openBurger ? 'w-3/4' : 'w-0 translate-x-full opacity-0'
-        } bg-tertiary border-tertiary px-4 py-8 flex flex-col z-10 bg-gray-700 hover:bg-gray-800 h-[calc(100%-48px)] drop-shadow-md shadow-tertiary`}
+        } bg-tertiary border-tertiary px-4 py-8 flex flex-col z-10 bg-gray-700 hover:bg-gray-800 h-[calc(100%-40px)] drop-shadow-md shadow-tertiary`}
       >
         {ListMenu[lang ? 'en' : 'id'].map((e, i) => (
           <Link href={e.href} key={`${i + 1}`} onClick={toggleBurger}>
