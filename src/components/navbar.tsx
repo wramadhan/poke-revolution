@@ -10,10 +10,10 @@ import { ToggleButton } from './navbar/_toogleButton'
 import { ScrollToTopButton } from './scrollToTopButton'
 
 export const Navbar = ({ children }: { children: ReactNode }) => {
-  const { lang, setDefault: setDefault } = useLangStore()
+  const { lang, setDefault } = useLangStore()
   const setLanguage = () => {
-    localStorage.setItem('lang', JSON.stringify(lang ? false : true))
-    setDefault(lang ? false : true)
+    localStorage.setItem('lang', JSON.stringify(!lang))
+    setDefault(!lang)
   }
   const [open, setOpen] = useState(true)
 
