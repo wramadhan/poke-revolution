@@ -1,16 +1,19 @@
 import { PlaceholderInput } from '@/services/contact/placeholder'
+import { Tooltip } from '@/services/contact/tooltip'
+import { useFormEmail } from '@/store/formEmail'
 import { useLangStore } from '@/store/language'
-import { useState } from 'react'
 
-export const FormContact: React.FC = () => {
+type FormProps = {
+  onSubmit: () => void
+}
+
+export const FormContact: React.FC<FormProps> = ({ onSubmit }) => {
+  const { name, email, message, setName, setEmail, setMessage } = useFormEmail()
+  const disabled = !name || !email || !message
   const { lang } = useLangStore()
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [message, setMessage] = useState('')
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log('Submitted:', { name, email, message })
+    onSubmit()
   }
 
   return (
@@ -57,7 +60,16 @@ export const FormContact: React.FC = () => {
         />
       </div>
       <div className='flex items-center w-full justify-end'>
-        <button className={styling.submit} type='submit'>
+        <button
+          title={
+            Tooltip[lang ? 'en' : 'id']['submit'][disabled ? 'false' : 'true']
+          }
+          disabled={disabled}
+          className={`hover:text-quaternary ${
+            disabled ? '' : 'hover:bg-tertiary'
+          } duration-200 text-secondary font-bold py-2 px-4 rounded-md mt-4 focus:outline-none focus:shadow-outline disabled:cursor-not-allowed disabled:text-opacity-70`}
+          type='submit'
+        >
           {lang ? 'Submit' : 'Kirim'}
         </button>
       </div>
@@ -69,6 +81,4 @@ const styling = {
   label: 'block text-gray-700 text-sm mb-2 text-white font-poppins',
   input:
     'shadow appearance-none border-none rounded placeholder:opacity-50 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
-  submit:
-    'hover:text-quaternary hover:bg-tertiary duration-200 text-secondary font-bold py-2 px-4 rounded-md mt-4 focus:outline-none focus:shadow-outline',
 }
