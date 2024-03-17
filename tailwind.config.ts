@@ -26,6 +26,7 @@ const config: Config = {
       quinary: '#6EA4BB',
       white: '#FFFFFF',
       black: '#000000',
+      red: '#BC0809',
       transparent: 'transparent',
       current: 'currentColor',
     },

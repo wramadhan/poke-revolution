@@ -1,15 +1,20 @@
+import { AlertModal } from '@/components/alert'
 import { EmailLink } from '@/components/contact-us/emailIcon'
 import { FormContact } from '@/components/contact-us/form'
+import { Loading } from '@/components/contact-us/loading'
 import { SocialLink } from '@/components/contact-us/socialIcon'
 import { DescContact } from '@/services/contact/desc'
 import { useFormEmail } from '@/store/formEmail'
 import { useLangStore } from '@/store/language'
+import { useShowModal } from '@/utils/useShowModal'
 
 const Contact = () => {
-  const { name, email, message } = useFormEmail()
+  const { showModal, timeModal, openModal, status } = useShowModal()
+  const { name, email, message, loading, setLoading } = useFormEmail()
   const { lang } = useLangStore()
 
   const handleSendEmail = () => {
+    setLoading(true)
     const myHeaders = new Headers()
     myHeaders.append('Content-Type', 'application/json')
 
@@ -33,19 +38,27 @@ const Contact = () => {
     }
     fetch(process.env.NEXT_PUBLIC_EMAIL_API ?? '', requestOptions)
       .then((response) => response.text())
-      .then((result) => console.log(result))
-      .catch((error) => console.error(error))
+      .then((res) => {
+        openModal('success')
+        console.log('res : ', res)
+      })
+      .catch((error) => {
+        openModal('failed')
+        console.error(error)
+      })
+      .finally(() => setLoading(false))
   }
 
   return (
     <div className='py-16 bg-primary mdMax:px-9 px-14 md:h-[calc(100vh-66px)]'>
+      {showModal && <AlertModal timeModal={timeModal} status={status} />}
       <div className='md:flex gap-4 justify-between'>
         <div className='md:w-1/2 md:flex flex-col justify-evenly'>
           <span>
             <div className='text-quaternary text-center font-poppins font-bold md:mt-7 text-2xl'>
               {lang ? 'Contact' : 'Kontak'}
             </div>
-            <p className='text-quaternary pt-4'>
+            <p className='text-quaternary pt-4 select-none'>
               {DescContact[lang ? 'en' : 'id']}
             </p>
           </span>
@@ -53,7 +66,15 @@ const Contact = () => {
             <Social />
           </div>
         </div>
-        <FormContact onSubmit={handleSendEmail} />
+        {loading === false ? (
+          <FormContact onSubmit={handleSendEmail} />
+        ) : (
+          <div className='flex justify-center md:w-1/2'>
+            <div className='h-[calc(100vh-440px)] md:h-[calc(100vh-200px)] flex flex-col justify-center'>
+              <Loading />
+            </div>
+          </div>
+        )}
         <div className='md:hidden'>
           <Social />
         </div>
@@ -63,6 +84,7 @@ const Contact = () => {
 }
 
 export default Contact
+
 const Social = () => {
   const { lang } = useLangStore()
   return (
