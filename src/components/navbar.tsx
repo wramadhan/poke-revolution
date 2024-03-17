@@ -50,10 +50,12 @@ export const Navbar = ({ children }: { children: ReactNode }) => {
             </div>
           </span>
         </Link>
-        <nav className='mdMax:hidden font-poppins flex gap-3 pt-1.5'>
+        <nav className='mdMax:hidden font-poppins flex gap-3 pt-1.5 '>
           {ListMenu[lang ? 'en' : 'id'].map((link, index) => (
             <Link key={`${index + 1}${link.href}`} href={link.href}>
-              {link.label}
+              <p className='hover:text-tertiary hover:scale-105 active:text-tertiary active:scale-75 duration-100'>
+                {link.label}
+              </p>
             </Link>
           ))}
           <span className='flex gap-3 mt-[-6px]'>
