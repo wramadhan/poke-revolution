@@ -1,11 +1,11 @@
 import { Html, Head, Main, NextScript } from 'next/document'
-import { Analytics } from '@vercel/analytics/react'
-import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export default function Document() {
   return (
     <Html lang='en'>
       <Head>
+        <title>Poke Revolution</title>
+        <link rel='icon' href='/icon.svg' type='image/svg+xml' />
         <script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
@@ -36,8 +36,6 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
-        <Analytics />
-        <SpeedInsights />
       </body>
     </Html>
   )
