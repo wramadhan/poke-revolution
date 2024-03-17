@@ -54,11 +54,10 @@ export const FormContact: React.FC<FormProps> = ({ onSubmit }) => {
             {lang ? 'Message' : 'Pesan'}
           </label>
           <textarea
-            className={`${styling.input} resize-none scroll-smooth`}
+            className={`${styling.input} resize-none scroll-smooth md:h-[100px] h-[150px]`}
             id='message'
             required
             rows={5}
-            style={{ height: '100px' }}
             placeholder={PlaceholderInput[lang ? 'en' : 'id'].desc}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
